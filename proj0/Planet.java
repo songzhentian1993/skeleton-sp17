@@ -34,4 +34,14 @@ public class Planet {
 		return r;
 	}
 	
+	public double calcForceExertedBy(Planet p) {
+		double F;
+		double m1 = mass;
+		double m2 = p.mass;
+		double G = 6.67 * Math.pow(10, -11);
+		double r = calcDistance(p);
+		F = G * m1 * m2 / (r * r);
+		return F;
+	}
+	
 }
