@@ -61,4 +61,24 @@ public class Planet {
 		Fy = F * dy / r;
 		return Fy;
 	}
+	
+	public double calcNetForceExertedByX(Planet[] planets) {
+		double NFx = 0;
+		for (Planet p: planets) {
+			if (this.equals(p) != true) {
+				NFx = NFx + calcForceExertedByX(p);
+			}
+		}
+		return NFx;
+	}
+	
+	public double calcNetForceExertedByY(Planet[] planets) {
+		double NFy = 0;
+		for (Planet p: planets) {
+			if (this.equals(p) != true) {
+				NFy = NFy + calcForceExertedByY(p);
+			}
+		}
+		return NFy;
+	}
 }
