@@ -35,7 +35,6 @@ public class NBody {
 		double radius = readRadius(filename);
 		Planet[] planets = readPlanets(filename);
 		StdDraw.setScale(-radius, radius);
-		//StdDraw.enableDoubleBuffering();
 		while (time < T) {
 			double[] arr_xForce = new double[planets.length];
 			double[] arr_yForce = new double[planets.length];
@@ -53,8 +52,12 @@ public class NBody {
 				p.draw();
 			}
 			StdDraw.show(10);
-			//StdDraw.pause(10);
 			time = time + dt;
+		}
+		StdOut.printf("%d\r\n", planets.length);
+		StdOut.printf("%.2e\r\n", radius);
+		for (Planet p: planets) {
+			StdOut.printf("%11.4e %11.4e %11.4e %11.4e %11.4e %20s\r\n", p.xxPos, p.yyPos, p.xxVel, p.yyVel, p.mass, p.imgFileName);
 		}
 	}
 }
